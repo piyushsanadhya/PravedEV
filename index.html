@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praved EV PVT. LTD. - Coming Soon</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #00a8ff;
+            --secondary-color: #f5f6fa;
+            --dark-color: #353b48;
+            --light-color: #f1f2f6;
+        }
+
+        /* Body */
+        body {
+            background-color: var(--secondary-color);
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        /* Logo */
+        .logo {
+            width: 200px;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        /* Main section */
+        .main {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Heading */
+        .heading {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Subheading */
+        .subheading {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Countdown item */
+        .countdown-item {
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        /* Countdown number */
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Countdown label */
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Form */
+        .form {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        /* Form input */
+        .form-input {
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            outline: none;
+        }
+
+        /* Form button */
+        .form-button {
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Footer */
+        .footer {
+            min-height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer link */
+        .footer-link {
+            margin: 0 10px;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        /* Footer link hover */
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-container">
+        <h1 class="text-center pt-5 text-info font-weight-bolder">Praved EV</h1>
+    </div>
+    <!-- Main section -->
+    <div class="main">
+        <!-- Heading -->
+        <h1 class="heading">We are launching soon</h1>
+        <!-- Subheading -->
+        <p class="subheading"><span class="text-info"> Praved EV PVT. LTD.</span> is a company that specializes in electric vehicles. Stay tuned for more updates.</p>
+        <!-- Countdown -->
+        <div class="countdown" id="countdown">
+            <!-- Days -->
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <!-- Hours -->
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <!-- Minutes -->
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <!-- Seconds -->
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Get elements
+        const countdown = document.getElementById('countdown');
+        const days = document.getElementById('days');
+        const hours = document.getElementById('hours');
+        const minutes = document.getElementById('minutes');
+        const seconds = document.getElementById('seconds');
+        const form = document.getElementById('form');
+        const email = document.getElementById('email');
+        const button = document.getElementById('button');
+
+        // Set launch date (ms)
+        const launchDate = new Date('Jan 1, 2025 12:00:00').getTime();
+
+        // Update countdown
+        const updateCountdown = () => {
+            // Get current date (ms)
+            const currentDate = new Date().getTime();
+
+            // Get difference between dates (ms)
+            const difference = launchDate - currentDate;
+
+            // Calculate time values
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Display time values
+            days.innerHTML = d;
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+        };
+
+        // Run updateCountdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
